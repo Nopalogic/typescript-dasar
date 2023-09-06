@@ -95,4 +95,17 @@ describe('Interface', function () {
 
 		console.info(domain);
 	});
+
+  it('should support type assertions', function () {
+
+    const person: any = {
+        name: "Naufal",
+        age: 20
+    };
+
+    const person2 : Person = person as Person;
+
+    console.info(person2);
+
+});
 });
