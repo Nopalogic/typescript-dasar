@@ -1,5 +1,6 @@
 import { Seller } from '../src/seller';
 import { Employee, Manager } from '../src/employee';
+import { Person } from '../src/person';
 
 describe('Interface', function () {
 	it('should support in typescript', function () {
@@ -65,5 +66,14 @@ describe('Interface', function () {
 		};
 
 		console.info(manager);
+	});
+
+	it('should support function in interface', function () {
+		const person: Person = {
+			name: 'Naufal',
+			sayHello: function (name: string): string {
+				return `Hello ${name}, I'm ${this.name}`;
+			},
+		};
 	});
 });
