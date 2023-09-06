@@ -76,4 +76,23 @@ describe('Interface', function () {
 			},
 		};
 	});
+
+	it('should support intersection type', function () {
+		interface HasId {
+			id: string;
+		}
+
+		interface HasName {
+			name: string;
+		}
+
+		type Domain = HasId & HasName;
+
+		const domain: Domain = {
+			id: '1',
+			name: 'Naufal',
+		};
+
+		console.info(domain);
+	});
 });
