@@ -61,4 +61,26 @@ describe('Function', function () {
 		expect(callMe(100)).toBe(100);
 		expect(callMe('Naufal')).toBe('Naufal');
 	});
+
+	it('should function as parameter', function () {
+		function sayHello(name: string, filter: (name: string) => string) {
+			return `Hello, ${filter(name)}`;
+		}
+
+		function toUpper(name: string): string {
+			return name.toUpperCase();
+		}
+
+		expect(sayHello('Naufal', toUpper)).toBe('Hello, NAUFAL');
+
+		// anonymous function
+		expect(
+			sayHello('Naufal', function (name: string): string {
+				return name.toUpperCase();
+			})
+		).toBe('Hello, NAUFAL');
+
+		// arrow function
+		expect(sayHello('Naufal', (name: string): string => name.toUpperCase())).toBe('Hello, NAUFAL');
+	});
 });
