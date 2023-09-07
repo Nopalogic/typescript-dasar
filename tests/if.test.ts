@@ -15,6 +15,23 @@ describe('If Statement', function () {
 		const value = 80;
 		const status = value >= 75 ? 'Passed' : 'Failed';
 
-    console.info(status)
+		console.info(status);
+	});
+
+	it('should support switch statement', function () {
+		function sayHello(name: string): string {
+			switch (name) {
+				case 'Naufal':
+					return 'Hello, Naufal';
+				case 'Adhi':
+					return 'Hello, Adhi';
+				default:
+					return 'Hello';
+			}
+		}
+
+		console.info(sayHello('Naufal'));
+		console.info(sayHello('Adhi'));
+		console.info(sayHello('Ramadhan'));
 	});
 });
