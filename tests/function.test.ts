@@ -43,7 +43,22 @@ describe('Function', function () {
 			}
 		}
 
-    expect(sayHello("Naufal")).toBe("Hello Naufal");
-        expect(sayHello("Naufal", "Adhi")).toBe("Hello Naufal Adhi");
+		expect(sayHello('Naufal')).toBe('Hello Naufal');
+		expect(sayHello('Naufal', 'Adhi')).toBe('Hello Naufal Adhi');
+	});
+
+	it('should support function overloading', function () {
+		function callMe(value: number): number;
+		function callMe(value: string): string;
+		function callMe(value: any) {
+			if (typeof value === 'string') {
+				return value;
+			} else if (typeof value === 'number') {
+				return value;
+			}
+		}
+
+		expect(callMe(100)).toBe(100);
+		expect(callMe('Naufal')).toBe('Naufal');
 	});
 });
